@@ -2,7 +2,7 @@ const express = require("express");
 
 const { validateBody } = require("../../utils");
 
-const { addSchema } = require("../../schemas/contacts");
+const { schemas } = require("../../models/contact");
 
 const {
   addContact,
@@ -16,12 +16,12 @@ const router = express.Router();
 
 router.get("/", getAllContacts);
 
-router.get("/:contactId", getContactById);
+// router.get("/:contactId", getContactById);
 
-router.post("/", validateBody(addSchema), addContact);
+router.post("/", validateBody(schemas.addSchema), addContact);
 
-router.delete("/:contactId", deleteContact);
+// router.delete("/:contactId", deleteContact);
 
-router.put("/:contactId", validateBody(addSchema), updateContact);
+// router.put("/:contactId", validateBody(addSchema), updateContact);
 
 module.exports = router;
